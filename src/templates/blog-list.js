@@ -14,8 +14,8 @@ class BlogIndex extends React.Component {
     const { currentPage, numPages } = this.props.pageContext
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
-    const prevPage = currentPage - 1 === 1 ? '/' : (currentPage - 1).toString()
-    const nextPage = (currentPage + 1).toString()
+    const prevPage = "blog/" +(currentPage - 1 === 1 ? '' : (currentPage - 1).toString())
+    const nextPage = "blog/" +(currentPage + 1).toString()
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -65,7 +65,7 @@ class BlogIndex extends React.Component {
               }}
             >
               <Link
-                to={`/${i === 0 ? '' : i + 1}`}
+                to={`blog/${i === 0 ? '' : i + 1}`}
                 style={{
                   padding: rhythm(1 / 4),
                   textDecoration: 'none',
