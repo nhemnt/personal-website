@@ -4,7 +4,7 @@ body {
   --textTitle: #222;
   --textLink: blue;
   --hr: hsla(0, 0%, 0%, 0.2);
-  --toggle: transparent;
+  --mode: transparent;
   background-color: var(--bg);
 }
 
@@ -16,7 +16,7 @@ body.dark {
   --textTitle: white;
   --textLink: yellow;
   --hr: hsla(0, 0%, 100%, 0.2);
-  --toggle: #ffce45;
+  --mode: #ffce45;
 }
 
 .dark-light {
