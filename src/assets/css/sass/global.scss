@@ -1,0 +1,123 @@
+
+
+$theme-color-purple: #922c88;
+$theme-color-blue: #145388;
+$theme-color-green: #576a3d;
+$theme-color-orange: #e2863b;
+$theme-color-red: #880a1f;
+
+$info-color: #3195a5;
+$success-color: #3e884f;
+$warning-color: #b69329;
+$error-color: #c43d4b;
+
+
+html {
+  width: 100%;
+  height: 100%;
+  background: $background-color;
+}
+
+:root {
+  --theme-color-1: #{$theme-color-1};
+  --theme-color-2: #{$theme-color-2};
+  --theme-color-3: #{$theme-color-3};
+  --theme-color-4: #{$theme-color-4};
+  --theme-color-5: #{$theme-color-5};
+  --theme-color-6: #{$theme-color-6};
+  --theme-color-1-10: #{rgba($theme-color-1, 0.1)};
+  --theme-color-2-10: #{rgba($theme-color-2, 0.1)};
+  --theme-color-3-10: #{rgba($theme-color-3, 0.1)};
+  --theme-color-4-10: #{rgba($theme-color-4, 0.1)};
+  --theme-color-5-10: #{rgba($theme-color-5, 0.1)};
+  --theme-color-6-10: #{rgba($theme-color-6, 0.1)};
+
+  --primary-color: #{$primary-color};
+  --foreground-color: #{$foreground-color};
+  --separator-color: #{$separator-color};
+}
+
+
+h3 a{
+  color: $theme-color-1;
+}
+
+body{
+  background: $background-color;
+}
+.theme-colors {
+  width: 280px;
+  position: fixed;
+  z-index: 1030;
+  top: 50%;
+  right: 0;
+  background: $foreground-color;
+  transform: translate(280px, -50%);
+  transition: transform 0.4s ease-out;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  .theme-button {
+    position: absolute;
+    left: -34px;
+    background: $foreground-color;
+    padding: 13px 7px 13px 7px;
+    border-radius: 0.2rem;
+    color: $primary-color;
+    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.04);
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $theme-color-1;
+
+    svg{
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .theme-color {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    border-radius: 20px;
+    transition: background 0.25s;
+
+    &.active,
+    &:hover {
+      background: $foreground-color;
+    }
+    span {
+      display: none;
+    }
+  }
+
+  .theme-color-purple {
+    border: 3px solid $theme-color-purple;
+    background: $theme-color-purple;
+  }
+
+  .theme-color-blue {
+    border: 3px solid $theme-color-blue;
+    background: $theme-color-blue;
+  }
+
+  .theme-color-orange {
+    border: 3px solid $theme-color-orange;
+    background: $theme-color-orange;
+  }
+
+  .theme-color-green {
+    border: 3px solid $theme-color-green;
+    background: $theme-color-green;
+  }
+
+  .theme-color-red {
+    border: 3px solid $theme-color-red;
+    background: $theme-color-red;
+  }
+
+  &.shown {
+    transform: translate(0, -50%);
+  }
+}
