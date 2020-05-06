@@ -18,7 +18,7 @@ class ColorSwitcher extends Component {
   componentDidMount() {
     if (typeof window !== undefined) {
       this.setState({
-        selectedColor: localStorage.getItem(themeColorStorageKey) :
+        selectedColor: localStorage.getItem(themeColorStorageKey)
       })
     }
   }
