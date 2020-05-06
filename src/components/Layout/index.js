@@ -13,11 +13,13 @@ class Layout extends Component {
   }
   componentDidMount() {
     const color =
-      localStorage.getItem(themeColorStorageKey)
+    typeof window !== undefined && localStorage.getItem(themeColorStorageKey)
         ? localStorage.getItem(themeColorStorageKey)
         : defaultColor
-
-    localStorage.setItem(themeColorStorageKey, color)
+    if (typeof window !== undefined) {
+      localStorage.setItem(themeColorStorageKey, color)  
+    }
+    
 
     const path = `./themes/${color}.scss`
     import(`${path}`).then(module => this.setState({ loading: true }))

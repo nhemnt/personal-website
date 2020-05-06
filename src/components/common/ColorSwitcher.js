@@ -54,14 +54,14 @@ class ColorSwitcher extends Component {
   addEvents = () => {
     if (typeof window === "undefined" || !window.document) {
       ['click', 'touchstart'].forEach(event =>
-        document.addEventListener(event, this.handleDocumentClick, true)
+        window.document.addEventListener(event, this.handleDocumentClick, true)
       );
     }
   };
   removeEvents = () => {
     if (typeof window === "undefined" || !window.document) {
       ['click', 'touchstart'].forEach(event =>
-        document.removeEventListener(event, this.handleDocumentClick, true)
+        window.document.removeEventListener(event, this.handleDocumentClick, true)
       );
     }
   };
