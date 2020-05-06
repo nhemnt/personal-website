@@ -10,9 +10,17 @@ class ColorSwitcher extends Component {
 
     this.state = {
       isOpen: false,
-      selectedColor: window !== undefined  ? localStorage.getItem(themeColorStorageKey) : defaultColor,
+      selectedColor: '',
     };
     this.removeEvents();
+  }
+
+  componentDidMount() {
+    if (typeof window !== undefined) {
+      this.setState({
+        selectedColor: localStorage.getItem(themeColorStorageKey) :
+      })
+    }
   }
 
   getContainer = () => {
@@ -33,7 +41,7 @@ class ColorSwitcher extends Component {
   };
   changeThemeColor = (e, color) => {
     e.preventDefault();
-    if (window !== undefined) {
+    if (typeof window !== undefined) {
       localStorage.setItem(themeColorStorageKey, color);      
     }
 
