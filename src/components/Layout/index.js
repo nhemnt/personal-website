@@ -1,38 +1,14 @@
 import React, { Component } from 'react'
-import Child from './Child'
-import {
-  defaultColor,
-  themeColorStorageKey,
-  } from '../../constants/defaultValues'
-import ColorSwitcher from '../common/ColorSwitcher'
+import loadable from '@loadable/component';
 
-class Layout extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { Module: false }
-  }
-  componentDidMount() {
-    const color =
-    typeof window !== undefined && localStorage.getItem(themeColorStorageKey)
-        ? localStorage.getItem(themeColorStorageKey)
-        : defaultColor
-    if (typeof window !== undefined) {
-      localStorage.setItem(themeColorStorageKey, color)  
-    }
-    
-
-    const path = `./themes/${color}.scss`
-    import(`${path}`).then(module => this.setState({ loading: true }))
-  }
-  render() {
-    const { loading } = this.state
+const OtherComponent = loadable(() => import('./Child'))
+const Layout = (props) => {
+  
     return (
       <>
-        <ColorSwitcher />
-        {loading ? <Child {...this.props} /> : ''}
+         <OtherComponent {...props} />
       </>
     )
-  }
 }
 
 export default Layout
