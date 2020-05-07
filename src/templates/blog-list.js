@@ -1,21 +1,24 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
+import React from "react";
+import { Link, graphql } from "gatsby";
 
-import SEO from '../components/seo'
-import Bio from '../components/Bio'
-import Layout from '../components/Layout'
-import { rhythm } from '../utils/typography'
+import SEO from "../components/seo";
+import Bio from "../components/Bio";
+import Layout from "../components/Layout";
+import { rhythm } from "../utils/typography";
+import { Header, PostPreview, Blog } from "./styles";
+import BlogHeader from "./blog-header.jpg";
 
 class BlogIndex extends React.Component {
   render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
-    const { currentPage, numPages } = this.props.pageContext
-    const isFirst = currentPage === 1
-    const isLast = currentPage === numPages
-    const prevPage = "blog/" +(currentPage - 1 === 1 ? '' : (currentPage - 1).toString())
-    const nextPage = "blog/" +(currentPage + 1).toString()
+    const { data } = this.props;
+    const { title: siteTitle, author } = data.site.siteMetadata;
+    const posts = data.allMarkdownRemark.edges;
+    const { currentPage, numPages } = this.props.pageContext;
+    const isFirst = currentPage === 1;
+    const isLast = currentPage === numPages;
+    const prevPage =
+      "blog/" + (currentPage - 1 === 1 ? "" : (currentPage - 1).toString());
+    const nextPage = "blog/" + (currentPage + 1).toString();
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -23,32 +26,63 @@ class BlogIndex extends React.Component {
           title={siteTitle}
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+        <Blog>
+          <Header
+          style={{ backgroundImage: `url(${BlogHeader})` }}
+          >
+            <div className="overlay" />
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-8 col-md-10 mx-auto">
+                  <div className="site-heading">
+                    <h1>CodeLutto's Blog</h1>
+                    <span className="subheading">
+                      Software Developers never RIP, they just get Garbage
+                      Collected.
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
-          )
-        })}
+          </Header>
+
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 col-md-10 mx-auto">
+                {posts.map(({ node }) => {
+                  const title = node.frontmatter.title || node.fields.slug;
+                  return (
+                    <>
+                      <PostPreview key={node.fields.slug}>
+                        <Link to={node.fields.slug}>
+                          <h2 className="post-title">{title}</h2>
+                          <p
+                            className="post-subtitle"
+                            dangerouslySetInnerHTML={{ __html: node.excerpt }}
+                          />
+                        </Link>
+                        <p className="post-meta">
+                          Posted by <a href="#">{author}</a> on{" "}
+                          {node.frontmatter.date}
+                        </p>
+                      </PostPreview>
+                      <hr />
+                    </>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+          <hr />
+        </Blog>
+
         <ul
           style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            listStyle: 'none',
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            alignItems: "center",
+            listStyle: "none",
             padding: 0,
           }}
         >
@@ -65,12 +99,12 @@ class BlogIndex extends React.Component {
               }}
             >
               <Link
-                to={`blog/${i === 0 ? '' : i + 1}`}
+                to={`blog/${i === 0 ? "" : i + 1}`}
                 style={{
                   padding: rhythm(1 / 4),
-                  textDecoration: 'none',
-                  color: i + 1 === currentPage ? '#ffffff' : '',
-                  background: i + 1 === currentPage ? '#007acc' : '',
+                  textDecoration: "none",
+                  color: i + 1 === currentPage ? "#ffffff" : "",
+                  background: i + 1 === currentPage ? "#007acc" : "",
                 }}
               >
                 {i + 1}
@@ -83,18 +117,26 @@ class BlogIndex extends React.Component {
             </Link>
           )}
         </ul>
+
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <Bio />
       </Layout>
-    )
+    );
   }
 }
 
-export default BlogIndex
+export default BlogIndex;
 
 export const pageQuery = graphql`
   query blogPageQuery($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
+        author
       }
     }
     allMarkdownRemark(
@@ -116,4 +158,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
