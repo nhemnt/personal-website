@@ -12,7 +12,7 @@ module.exports = {
     },
   },
   plugins: [
-    // `gatsby-plugin-styled-components`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -78,7 +78,6 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    `gatsby-plugin-dark-mode`,
     {
       resolve: `gatsby-remark-prismjs`,
       options: {
