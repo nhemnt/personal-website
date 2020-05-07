@@ -30,6 +30,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-plugin-styled-components`,
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -109,6 +110,5 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
-    `gatsby-plugin-styled-components`
   ],
 }
