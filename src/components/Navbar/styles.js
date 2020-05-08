@@ -59,7 +59,7 @@ export const Body = styled.div(
       box-shadow: none;
     }
 
-    > a > svg {
+     svg {
       display: block;
       height: 32px;
       margin-bottom: 0.25rem;
