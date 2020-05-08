@@ -4,10 +4,10 @@ import { Link, graphql } from "gatsby";
 import SEO from "../components/seo";
 import Bio from "../components/Bio";
 import Layout from "../components/Layout";
-import { rhythm } from "../utils/typography";
+// import { rhythm } from "../utils/typography";
 import { Header, PostPreview, Blog } from "./styles";
 import BlogHeader from "./blog-header.jpg";
-
+import Pagination from "../components/Pagination";
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props;
@@ -76,51 +76,18 @@ class BlogIndex extends React.Component {
           <hr />
         </Blog>
 
-        <ul
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-between",
-            alignItems: "center",
-            listStyle: "none",
-            padding: 0,
-          }}
-        >
-          {!isFirst && (
-            <Link to={prevPage} rel="prev">
-              ← Previous Page
-            </Link>
-          )}
-          {Array.from({ length: numPages }, (_, i) => (
-            <li
-              key={`pagination-number${i + 1}`}
-              style={{
-                margin: 0,
-              }}
-            >
-              <Link
-                to={`blog/${i === 0 ? "" : i + 1}`}
-                style={{
-                  padding: rhythm(1 / 4),
-                  textDecoration: "none",
-                  color: i + 1 === currentPage ? "#ffffff" : "",
-                  background: i + 1 === currentPage ? "#007acc" : "",
-                }}
-              >
-                {i + 1}
-              </Link>
-            </li>
-          ))}
-          {!isLast && (
-            <Link to={nextPage} rel="next">
-              Next Page →
-            </Link>
-          )}
-        </ul>
+        <Pagination
+          isFirst={isFirst}
+          prevPage={prevPage}
+          numPages={numPages}
+          currentPage={currentPage}
+          isLast={isLast}
+          nextPage={nextPage}
+        />
 
         <hr
           style={{
-            marginBottom: rhythm(1),
+            // marginBottom: rhythm(1),
           }}
         />
         <Bio />
