@@ -10,6 +10,7 @@ module.exports = {
       facebook: `nhemnt`,
       github: `nhemnt`
     },
+    disqusShortname: "codelutto"
   },
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -54,7 +55,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-165963715-1`,
       },
     },
     `gatsby-plugin-feed`,

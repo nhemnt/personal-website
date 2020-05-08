@@ -6,10 +6,10 @@
   "bugs": {
     "url": "https://github.com/nhemnt/personal-website.git"
   },
+  "private": true,
   "dependencies": {
     "gatsby": "^2.21.9",
     "gatsby-image": "^2.0.22",
-    "gatsby-plugin-dark-mode": "^1.1.1",
     "gatsby-plugin-feed": "^2.0.8",
     "gatsby-plugin-google-analytics": "^2.0.5",
     "gatsby-plugin-manifest": "^2.0.5",
@@ -31,6 +31,7 @@
     "node-sass": "^4.14.0",
     "prismjs": "^1.20.0",
     "react": "^16.5.1",
+    "react-disqus-comments": "^1.4.0",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
@@ -41,13 +42,17 @@
     "typography": "^0.16.17",
     "typography-theme-wordpress-2016": "^0.15.10"
   },
+  "workspaces": [
+    "https://codelutto.netlify.app/",
+    "gatsby-plugin-disqus/lib"
+  ],
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.11.1",
     "gh-pages": "^1.2.0",
     "prettier": "^1.14.2"
   },
-  "homepage": "https://github.com/nhemnt/personal-website.git#readme",
+  "homepage": "https://codelutto.netlify.app/",
   "keywords": [
     "gatsby"
   ],

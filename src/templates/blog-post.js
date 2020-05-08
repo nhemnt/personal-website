@@ -1,10 +1,10 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import Disqus from "../components/Disqus";
 
 import Bio from "../components/Bio";
 import Layout from "../components/Layout";
 import SEO from "../components/seo";
-// import { rhythm, scale } from "../utils/typography";
 import { Header, Blog } from "./styles";
 import PostHeader from "./post-header.jpg";
 class BlogPostTemplate extends React.Component {
@@ -40,10 +40,14 @@ class BlogPostTemplate extends React.Component {
               <div className="row">
                 <div className="col-lg-8 col-md-10 mx-auto">
                   <div dangerouslySetInnerHTML={{ __html: post.html }} />
+                  <hr />
+                  <Disqus postNode={post} siteMetadata={this.props.data.site.siteMetadata} />
                 </div>
               </div>
+
             </div>
           </article>
+         
           <hr />
 
           <ul
@@ -73,9 +77,6 @@ class BlogPostTemplate extends React.Component {
         </Blog>
 
         <hr
-          style={{
-            // marginBottom: rhythm(1),
-          }}
         />
         <Bio />
       </Layout>
@@ -86,21 +87,27 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-      }
+query BlogPostBySlug($slug: String!) {
+  site {
+    siteMetadata {
+      title
+      author
+      siteUrl
+      disqusShortname
     }
   }
+  markdownRemark(fields: { slug: { eq: $slug } }) {
+    id
+    fields{
+      slug
+    }
+    excerpt(pruneLength: 160)
+    html
+    frontmatter {
+      title
+      date(formatString: "MMMM DD, YYYY")
+      slug
+    }
+  }
+}
 `;
