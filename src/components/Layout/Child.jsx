@@ -3,7 +3,8 @@ import {
   defaultColor,
   themeColorStorageKey,
   } from '../../constants/defaultValues'
-import ColorSwitcher from '../common/ColorSwitcher'
+import ColorSwitcher from '../common/ColorSwitcher';
+import Navbar from "../Navbar";
 
 class Child extends React.Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class Child extends React.Component {
       <>
         {loading && <ColorSwitcher />}
         {children}
+        <Navbar />
       </>
     )
   }
