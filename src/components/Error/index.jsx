@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from "gatsby";
 import { StyledError } from "./styles";
 function Error() {
   return (
@@ -9,7 +8,6 @@ function Error() {
           <h1>Oops!</h1>
           <h2>404 - The Page can't be found</h2>
         </div>
-        <Link to="/">Go TO Homepage</Link>
       </div>
     </StyledError>
   )

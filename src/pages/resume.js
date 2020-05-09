@@ -3,7 +3,7 @@ import Resume from "../components/resume";
 import Layout from "../components/Layout";
 export default function resume() {
   return (
-    <Layout >
+    <Layout navbarType={"small"}>
       <Resume />
     </Layout>
   )

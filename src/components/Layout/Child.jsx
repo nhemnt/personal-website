@@ -5,6 +5,7 @@ import {
   } from '../../constants/defaultValues'
 import ColorSwitcher from '../common/ColorSwitcher';
 import Navbar from "../Navbar";
+import MainNavbar from "../Navbar/main";
 
 class Child extends React.Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class Child extends React.Component {
     return (
       <>
         {loading && <ColorSwitcher />}
+        <MainNavbar {...this.props}/> 
         {children}
         <Navbar />
       </>
