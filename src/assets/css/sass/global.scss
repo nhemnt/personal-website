@@ -130,7 +130,10 @@ body{
  */
 
  @media (max-width: 750px) {
-  #resume{display: none;}
+  #resume {
+    padding-top: 0px !important;
+  }
+  #resume> nav{display: none;}
 }
  @media (min-width:992px) {
   #resume {
