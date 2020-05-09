@@ -13,7 +13,7 @@ query getSiteMetData {
 }
 `
 
-export default function resume() {
+export default function privacyPolicy() {
   
   const { site: { 
     siteMetadata: { siteUrl }
