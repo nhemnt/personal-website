@@ -159,6 +159,9 @@ export const Navbar = styled.nav(
 
 export const SideNavbar = styled.div(
   () => css`
+    @media (max-width: 750px) {
+      display: none;
+    }
     position: fixed;
     right: 20px;
     top: 20px;
