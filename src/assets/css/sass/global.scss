@@ -129,6 +129,9 @@ body{
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-resume/blob/master/LICENSE)
  */
 
+ @media (max-width: 750px) {
+  #resume{display: none;}
+}
  @media (min-width:992px) {
   #resume {
     padding-top: 0;

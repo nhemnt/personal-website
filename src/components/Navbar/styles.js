@@ -102,3 +102,63 @@ export const Body = styled.div(
     }
   `
 )
+
+
+export const NavbarHeader = styled.header(
+  () => css`
+   @media (max-width: 750px) {
+      display: none;
+    }
+      position: absolute;
+      top: 20px;
+      margin: 0;
+      width: 100%;
+      align-content: center;
+      text-align: center;
+  `
+)
+
+export const Navbar = styled.nav(
+  () => css`
+  display: inline-flex;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    background-color: #fff;
+    padding: 0 20px;
+    border-radius: 40px;
+    box-shadow: 0 10px 40px rgba(159, 162, 177, 0.8);
+    z-index: 98;
+
+    >a {
+      color: #83818c;
+    padding: 20px;
+    text-decoration: none;
+    -webkit-transition: .3s;
+    transition: .3s;
+    margin: 0 6px;
+    z-index: 1;
+    font-weight: 500;
+    position: relative;
+    }
+
+    >a:hover::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #dfe2ea;
+    border-radius: 8px 8px 0 0;
+    -webkit-transition: .3s;
+    transition: .3s;
+    opacity: 1;
+    bottom: 0;
+}
+
+
+   `
+)
+
+
+export const NavList = styled
