@@ -59,7 +59,7 @@ export const Body = styled.div(
       box-shadow: none;
     }
 
-     svg {
+    svg {
       display: block;
       height: 32px;
       margin-bottom: 0.25rem;
@@ -103,24 +103,23 @@ export const Body = styled.div(
   `
 )
 
-
 export const NavbarHeader = styled.header(
   () => css`
-   @media (max-width: 750px) {
+    @media (max-width: 750px) {
       display: none;
     }
-      position: absolute;
-      top: 20px;
-      margin: 0;
-      width: 100%;
-      align-content: center;
-      text-align: center;
+    position: absolute;
+    top: 20px;
+    margin: 0;
+    width: 100%;
+    align-content: center;
+    text-align: center;
   `
 )
 
 export const Navbar = styled.nav(
   () => css`
-  display: inline-flex;
+    display: inline-flex;
     position: relative;
     overflow: hidden;
     max-width: 100%;
@@ -130,35 +129,55 @@ export const Navbar = styled.nav(
     box-shadow: 0 10px 40px rgba(159, 162, 177, 0.8);
     z-index: 98;
 
-    >a {
+    > a {
       color: #83818c;
-    padding: 20px;
-    text-decoration: none;
-    -webkit-transition: .3s;
-    transition: .3s;
-    margin: 0 6px;
-    z-index: 1;
-    font-weight: 500;
-    position: relative;
+      padding: 20px;
+      text-decoration: none;
+      -webkit-transition: 0.3s;
+      transition: 0.3s;
+      margin: 0 6px;
+      z-index: 1;
+      font-weight: 500;
+      position: relative;
     }
 
-    >a:hover::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background-color: #dfe2ea;
-    border-radius: 8px 8px 0 0;
-    -webkit-transition: .3s;
-    transition: .3s;
-    opacity: 1;
-    bottom: 0;
-}
-
-
-   `
+    > a:hover::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background-color: #dfe2ea;
+      border-radius: 8px 8px 0 0;
+      -webkit-transition: 0.3s;
+      transition: 0.3s;
+      opacity: 1;
+      bottom: 0;
+    }
+  `
 )
 
-
-export const NavList = styled
+export const SideNavbar = styled.div(
+  () => css`
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    background: rgba(241, 241, 241, 0.7);
+    box-shadow: rgba(159, 166, 177, 0.7) 0px 0px 21px;
+    :hover{
+      box-shadow: rgba(159,166,177,0.8) 0px 3px 33px;
+      background: #f8f8f8;
+    }
+    > svg {
+      fill: rgba(241, 241, 241, 0.7);
+      margin-top: 12px;
+      :hover{
+        fill: rgba(241, 241, 241, 0.7);
+    }
+    }
+  `
+)
