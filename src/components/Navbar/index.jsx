@@ -173,7 +173,11 @@ const Navbar = () => {
       svg: (
         <svg
           className="svg-w"
-          style={{height: '27px'}}
+          style={{
+            height: '24px',
+            marginBottom: '8px',
+            marginTop: '4px'
+          }}
           viewBox="0 0 33 48"
           height={30}
           fill="none"
@@ -225,16 +229,16 @@ const Navbar = () => {
             fillRule="evenodd"
             clipRule="evenodd"
             d="M16.4463 10.0694L2.33594 9.99765L8.21525 46.9467H9.49801H23.3946H24.6773L30.5566 9.99765L16.4463 10.0694Z"
-            fill="#f6edfa"
+            fill="#fff"
             stroke="black"
             strokeWidth="1.55172"
           />
           <path
-            className="svg-stroke svg-stroke-dark"
+            // className="svg-stroke svg-stroke-dark"
             fillRule="evenodd"
             clipRule="evenodd"
             d="M30.9835 20.4329H16.8987H15.8856H1.80078L4.43535 35.1273L16.3922 34.9992L28.349 35.1273L30.9835 20.4329Z"
-            fill="#f6edfa"
+            fill="#78757a"
           />
           <path
             className="svg-stroke svg-stroke-dark"
