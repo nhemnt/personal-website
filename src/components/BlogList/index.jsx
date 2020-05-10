@@ -61,7 +61,7 @@ const BlogList = (
                         Posted by <a href="#">{author}</a> on{" "}
                         {node.frontmatter.tags.map((tag,i) => (
                           <Link to={`/blog/tags/${tag}`} key={tag}>
-                            {tag}{" "}
+                            {tag}{node.frontmatter.tags.length-1 === i ? "" : "," }{" "}
                           </Link>
                         ))}
                         {node.frontmatter.date}
