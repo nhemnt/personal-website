@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "gatsby";
 import { Body } from './styles';
 // color: i + 1 === currentPage ? "#ffffff" : "",
-const Pagination = ({isFirst, prevPage, numPages, currentPage, isLast, nextPage}) => (
+const Pagination = ({isFirst, prevPage, numPages, currentPage, isLast, nextPage, tag =''}) => (
   <Body>
   <ul>
   {!isFirst && (
@@ -14,7 +14,7 @@ const Pagination = ({isFirst, prevPage, numPages, currentPage, isLast, nextPage}
     
       <Link
       key={`pagination-number${i + 1}`}
-      to={`blog/${i === 0 ? "" : i + 1}`}
+      to={`blog/${tag && ("tags/" + tag + "/") }${i === 0 ? "" : i + 1}`}
       className={i + 1 === currentPage  ?"is-active" :""}
       >
         <li>{i + 1}</li>

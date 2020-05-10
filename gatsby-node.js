@@ -28,6 +28,7 @@ exports.createPages = ({ graphql, actions }) => {
         tagsGroup: allMarkdownRemark(limit: 2000) {
           group(field: frontmatter___tags) {
             fieldValue
+            totalCount
           }
         }
       }
@@ -74,14 +75,23 @@ exports.createPages = ({ graphql, actions }) => {
 
     // Extract tag data from query
     const tags = result.data.tagsGroup.group
+    const postsPerPageforTag = 2;
     // Make tag pages
     tags.forEach(tag => {
-      createPage({
-        path: `/blog/tags/${_.kebabCase(tag.fieldValue)}/`,
-        component: path.resolve('./src/templates/tag.js'),
-        context: {
-          tag: tag.fieldValue,
-        },
+      const numOfPages = Math.ceil(tag.totalCount / postsPerPageforTag);
+      Array.from({ length: numOfPages }).forEach((__, i) => {
+        createPage({
+          path: i === 0 ? `/blog/tags/${_.kebabCase(tag.fieldValue)}`: `/blog/tags/${_.kebabCase(tag.fieldValue)}/${i + 1}`,
+          component: path.resolve('./src/templates/tag.js'),
+          context: {
+            tag: tag.fieldValue,
+            limit: postsPerPageforTag,
+            skip: i * postsPerPageforTag,
+            numPages: numOfPages,
+            currentPage: i + 1,
+            totalCount: tag.totalCount
+          },
+        })
       })
     })
   })

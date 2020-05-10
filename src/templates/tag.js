@@ -1,79 +1,77 @@
-import React from "react"
-import PropTypes from "prop-types"
-
-// Components
-import { Link, graphql } from "gatsby"
+import React from 'react'
+import PropTypes from 'prop-types'
+import BlogList from '../components/BlogList'
+import SEO from '../components/seo'
+import Bio from '../components/Bio'
+import Layout from '../components/Layout'
 
 const Tags = ({ pageContext, data }) => {
-  const { tag } = pageContext
-  const { edges, totalCount } = data.allMarkdownRemark
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`
+  const { title: siteTitle, author } = data.site.siteMetadata
+  const posts = data.allMarkdownRemark.edges
+  const { currentPage, numPages, tag, totalCount } = pageContext
+
+  const isFirst = currentPage === 1
+  const isLast = currentPage === numPages
+  const prevPage =
+    'blog/' +
+    tag +
+    '/' +
+    (currentPage - 1 === 1 ? '' : (currentPage - 1).toString())
+  const nextPage = 'blog/' + tag + '/' + (currentPage + 1).toString()
 
   return (
-    <div>
-      <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
-          const { slug } = node.fields
-          const { title } = node.frontmatter
-          return (
-            <li key={slug}>
-              <Link to={slug}>{title}</Link>
-            </li>
-          )
-        })}
-      </ul>
-      {/*
-              This links to a page that does not yet exist.
-              You'll come back to it!
-            */}
-      <Link to="/tags">All tags</Link>
-    </div>
-  )
-}
+    <Layout>
+      <SEO
+        title={siteTitle}
+        keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+      />
 
-Tags.propTypes = {
-  pageContext: PropTypes.shape({
-    tag: PropTypes.string.isRequired,
-  }),
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      totalCount: PropTypes.number.isRequired,
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-            }),
-            fields: PropTypes.shape({
-              slug: PropTypes.string.isRequired,
-            }),
-          }),
-        }).isRequired
-      ),
-    }),
-  }),
+      <BlogList
+        posts={posts}
+        pagination={{
+          isFirst,
+          prevPage,
+          numPages,
+          currentPage,
+          isLast,
+          nextPage,
+          tag,
+        }}
+        totalCount={totalCount}
+        author={author}
+      />
+      <Bio />
+    </Layout>
+  )
 }
 
 export default Tags
 
 export const pageQuery = graphql`
-  query($tag: String) {
+  query($tag: String, $skip: Int!, $limit: Int!) {
+    site {
+      siteMetadata {
+        title
+        author
+      }
+    }
     allMarkdownRemark(
-      limit: 2000
+      limit: $limit
+      skip: $skip
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount
       edges {
         node {
+          excerpt
           fields {
             slug
           }
           frontmatter {
             title
+            date(formatString: "DD MMMM, YYYY")
+            tags
           }
         }
       }

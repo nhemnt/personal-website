@@ -101,6 +101,56 @@ export const Header = styled.header(
   `
 );
 
+export const PostPreview = styled.header(
+  ({ theme: {  } }) => css`
+    > a {
+      color: #212529;
+    }
+
+    > a:focus,
+    > a:hover {
+      text-decoration: none;
+      color: #0085a1;
+    }
+
+    > a > .post-title {
+      font-size: 30px;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      text-transform: capitalize;
+    }
+
+    > a > .post-subtitle {
+      font-weight: 300;
+      margin: 0 0 10px;
+    }
+
+    > .post-meta {
+      font-size: 18px;
+      font-style: italic;
+      margin-top: 0;
+      color: #868e96;
+    }
+
+    > .post-meta > a {
+      text-decoration: none;
+      color: #212529;
+    }
+
+    > .post-meta > a:focus,
+    > .post-meta > a:hover {
+      text-decoration: underline;
+      color: #0085a1;
+    }
+
+    @media only screen and (min-width: 768px) {
+      > a > .post-title {
+        font-size: 36px;
+      }
+    }
+  `
+);
+
 export const Blog = styled.div(
   () => css`
     font-size: 20px;
