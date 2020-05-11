@@ -7,6 +7,7 @@ import Layout from "../components/Layout";
 import SEO from "../components/seo";
 import { Header, Blog } from "./styles";
 import PostHeader from "./post-header.jpg";
+import SharePost from "../components/sharePost";
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.post;
@@ -39,6 +40,7 @@ class BlogPostTemplate extends React.Component {
             <div className="container">
               <div className="row">
                 <div className="col-lg-8 col-md-10 mx-auto">
+                  <SharePost url={this.props.location.href}/>
                   <div dangerouslySetInnerHTML={{ __html: post.html }} />
                   <hr />
                   <Disqus postNode={post} siteMetadata={this.props.data.site.siteMetadata} />
