@@ -21,6 +21,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                tags
               }
             }
           }
@@ -52,6 +53,7 @@ exports.createPages = ({ graphql, actions }) => {
           slug: post.node.fields.slug,
           previous,
           next,
+          tag: Array.isArray(post.node.frontmatter.tags) && post.node.frontmatter.tags.length>0 && post.node.frontmatter.tags[0]
         },
       })
     })

@@ -9,7 +9,7 @@ import { Header, Blog } from "./styles";
 import PostHeader from "./post-header.jpg";
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark;
+    const post = this.props.data.post;
     const { siteTitle, author } = this.props.data.site.siteMetadata;
     const { previous, next } = this.props.pageContext;
 
@@ -87,7 +87,7 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate;
 
 export const pageQuery = graphql`
-query BlogPostBySlug($slug: String!) {
+query BlogPostBySlug($slug: String!, $tag: String!) {
   site {
     siteMetadata {
       title
@@ -96,7 +96,7 @@ query BlogPostBySlug($slug: String!) {
       disqusShortname
     }
   }
-  markdownRemark(fields: { slug: { eq: $slug } }) {
+  post: markdownRemark(fields: { slug: { eq: $slug } }) {
     id
     fields{
       slug
@@ -107,6 +107,28 @@ query BlogPostBySlug($slug: String!) {
       title
       date(formatString: "MMMM DD, YYYY")
       slug
+    }
+  }
+  relatedPosts: allMarkdownRemark(
+    sort: { fields: frontmatter___date, order: DESC }
+    filter: {frontmatter: {tags:{eq: $tag} }, fields:{slug:{ne: $slug }}}
+    limit: 2
+  ) {
+    edges {
+      node {
+        excerpt
+        fields {
+          slug
+        }
+        id
+        frontmatter {
+          title
+          tags
+          author
+          date(formatString: "MMMM DD, YYYY")
+        }
+        excerpt
+      }
     }
   }
 }
