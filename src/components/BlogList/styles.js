@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 export const Header = styled.header(
-  ({ theme: {  } }) => css`
+  ({ theme: {} }) => css`
     margin-bottom: 50px;
     background: no-repeat center center;
     background-color: #868e96;
@@ -52,7 +52,7 @@ export const Header = styled.header(
       line-height: 1.1;
       display: block;
       margin: 10px 0 0;
-      font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
     @media only screen and (min-width: 768px) {
@@ -76,14 +76,14 @@ export const Header = styled.header(
       font-size: 24px;
       font-weight: 600;
       margin: 10px 0 30px;
-      font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
     .post-heading .meta {
       font-size: 20px;
       font-weight: 300;
       font-style: italic;
-      font-family: Lora, "Times New Roman", serif;
+      font-family: Lora, 'Times New Roman', serif;
     }
 
     .post-heading .meta a {
@@ -99,10 +99,10 @@ export const Header = styled.header(
       }
     }
   `
-);
+)
 
 export const PostPreview = styled.header(
-  ({ theme: {  } }) => css`
+  ({ theme: {} }) => css`
     > a {
       color: #212529;
     }
@@ -149,13 +149,13 @@ export const PostPreview = styled.header(
       }
     }
   `
-);
+)
 
 export const Blog = styled.div(
   () => css`
     font-size: 20px;
     color: #212529;
-    font-family: Lora, "Times New Roman", serif;
+    font-family: Lora, 'Times New Roman', serif;
 
     p {
       line-height: 1.5;
@@ -173,7 +173,7 @@ export const Blog = styled.div(
     h5,
     h6 {
       font-weight: 800;
-      font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
     a {
@@ -241,7 +241,7 @@ export const Blog = styled.div(
       letter-spacing: 1px;
       text-transform: uppercase;
       border-radius: 0;
-      font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
     .btn-primary {
@@ -261,4 +261,10 @@ export const Blog = styled.div(
       padding: 25px 35px;
     }
   `
-);
+)
+
+export const ReadingTime = styled.span(
+  () => css`
+    margin-left: 5px;
+  `
+)

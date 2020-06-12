@@ -1,18 +1,20 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import Disqus from "../components/Disqus";
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import readingTime from 'reading-time'
+import Disqus from '../components/Disqus'
 
-import Bio from "../components/Bio";
-import Layout from "../components/Layout";
-import SEO from "../components/seo";
-import { Header, Blog } from "./styles";
-import PostHeader from "./post-header.jpg";
-import SharePost from "../components/sharePost";
+import Bio from '../components/Bio'
+import Layout from '../components/Layout'
+import SEO from '../components/seo'
+import { Header, Blog, ReadingTime } from './styles'
+import PostHeader from './post-header.jpg'
+import SharePost from '../components/sharePost'
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.post;
-    const { siteTitle, author } = this.props.data.site.siteMetadata;
-    const { previous, next } = this.props.pageContext;
+    const post = this.props.data.post
+    const timeToRead = readingTime(post.html)
+    const { siteTitle, author } = this.props.data.site.siteMetadata
+    const { previous, next } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -28,7 +30,7 @@ class BlogPostTemplate extends React.Component {
                     <h1>{post.frontmatter.title}</h1>
                     <h2 className="subheading"></h2>
                     <span className="meta">
-                      Posted by <a href="#">{author}</a> on{" "}
+                      Posted by <a href="#">{author}</a> on{' '}
                       {post.frontmatter.date}
                     </span>
                   </div>
@@ -40,16 +42,26 @@ class BlogPostTemplate extends React.Component {
             <div className="container">
               <div className="row">
                 <div className="col-lg-8 col-md-10 mx-auto">
-                  <SharePost url={this.props.location.href}/>
+                  <div className="row">
+                    <div className="col-6">
+                      <ReadingTime> {timeToRead.text}</ReadingTime>
+                    </div>
+                    <div className="col-6">
+                      <SharePost url={this.props.location.href} />
+                    </div>
+                  </div>
+
                   <div dangerouslySetInnerHTML={{ __html: post.html }} />
                   <hr />
-                  <Disqus postNode={post} siteMetadata={this.props.data.site.siteMetadata} />
+                  <Disqus
+                    postNode={post}
+                    siteMetadata={this.props.data.site.siteMetadata}
+                  />
                 </div>
               </div>
-
             </div>
           </article>
-         
+
           <hr />
 
           <ul
@@ -78,60 +90,62 @@ class BlogPostTemplate extends React.Component {
           </ul>
         </Blog>
 
-        <hr
-        />
+        <hr />
         <Bio />
       </Layout>
-    );
+    )
   }
 }
 
-export default BlogPostTemplate;
+export default BlogPostTemplate
 
 export const pageQuery = graphql`
-query BlogPostBySlug($slug: String!, $tag: String!) {
-  site {
-    siteMetadata {
-      title
-      author
-      siteUrl
-      disqusShortname
+  query BlogPostBySlug($slug: String!, $tag: String!) {
+    site {
+      siteMetadata {
+        title
+        author
+        siteUrl
+        disqusShortname
+      }
     }
-  }
-  post: markdownRemark(fields: { slug: { eq: $slug } }) {
-    id
-    fields{
-      slug
+    post: markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      fields {
+        slug
+      }
+      excerpt(pruneLength: 160)
+      html
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        slug
+      }
     }
-    excerpt(pruneLength: 160)
-    html
-    frontmatter {
-      title
-      date(formatString: "MMMM DD, YYYY")
-      slug
-    }
-  }
-  relatedPosts: allMarkdownRemark(
-    sort: { fields: frontmatter___date, order: DESC }
-    filter: {frontmatter: {tags:{eq: $tag} }, fields:{slug:{ne: $slug }}}
-    limit: 2
-  ) {
-    edges {
-      node {
-        excerpt
-        fields {
-          slug
+    relatedPosts: allMarkdownRemark(
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: {
+        frontmatter: { tags: { eq: $tag } }
+        fields: { slug: { ne: $slug } }
+      }
+      limit: 2
+    ) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          id
+          frontmatter {
+            title
+            tags
+            author
+            date(formatString: "MMMM DD, YYYY")
+          }
+          excerpt
         }
-        id
-        frontmatter {
-          title
-          tags
-          author
-          date(formatString: "MMMM DD, YYYY")
-        }
-        excerpt
       }
     }
   }
-}
-`;
+`
