@@ -59,6 +59,9 @@ export const Title = styled.div(
       color: #9da6ca;
       text-shadow: 2px 2px #d0d0d0;
     }
+    @media (max-width: 990px) {
+     margin-top: 20px;
+    }
   `
 )
 
