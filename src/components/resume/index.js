@@ -43,6 +43,14 @@ const socials = [
     url: 'https://github.com/nhemnt',
   },
   {
+    icon: 'behance',
+    url: 'https://behance.net/nhemnt',
+  },
+  {
+    icon: 'instagram',
+    url: 'https://www.instagram.com/nhemnt',
+  },
+  {
     icon: 'twitter',
     url: 'https://twitter.com/nhemnt',
   },

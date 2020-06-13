@@ -21,6 +21,16 @@ const socials = [
     title: 'Twitter',
   },
   {
+    icon: 'behance',
+    url: 'https://behance.net/nhemnt',
+    title: 'Behance',
+  },
+  {
+    icon: 'instagram',
+    url: 'https://www.instagram.com/nhemnt',
+    title: 'Instagram',
+  },
+  {
     icon: 'facebook-f',
     url: 'https://www.facebook.com/nhemnt',
     title: 'Facebook',
