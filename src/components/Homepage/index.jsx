@@ -91,7 +91,6 @@ const index = () => {
           </SocialIcon>
         </div>{' '}
       </VerticalCenter>
-      <section>asdasd</section>
     </div>
   )
 }
