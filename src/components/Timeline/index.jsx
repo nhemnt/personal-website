@@ -35,6 +35,15 @@ const data = [
     subtitle: ' Gurgoan Police, IN',
     description: 'Mobile Hacking, Exploits, Trojan Virus, Metasploit',
   },
+  {
+    date: 'Aug 2014 - Jul 2018',
+    iconStyle: { background: 'rgb(233, 30, 99)', color: '#fff' },
+    className: "vertical-timeline-element--education",
+    icon: <School />,
+    title: 'B.Tech CSE',
+    subtitle: ' Gurgoan IN',
+    description: '',
+  },
 ]
 const index = () => {
   return (
