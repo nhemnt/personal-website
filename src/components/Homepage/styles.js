@@ -122,8 +122,12 @@ export const SocialIcon = styled.div(
 export const TimelineSection = styled.section(
   () => css`
     color: #2b5165;
-    .vertical-timeline-element-date{
+
+    @media (min-width: 990px) {
+      .vertical-timeline-element-date{
       color: #2b5165 !important;
     }
+    }
+    
   `
 )

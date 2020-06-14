@@ -15,7 +15,7 @@ const data = [
     icon: <Work />,
     title: 'Software Developer',
     subtitle: 'Quincus, IN',
-    description: 'Front-End Develpoer, React JS, Node JS, User Experience',
+    description: 'Front-End Developer, React JS, Node JS, User Experience',
   },
   {
     date: 'Feb 2018 - Aug 2018',
