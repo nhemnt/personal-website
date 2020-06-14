@@ -7,10 +7,12 @@ import {
   SocialIcon,
   StyledIntro,
   TimelineSection,
+  ProjectSection,
 } from './styles'
 import { graphql, useStaticQuery } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import Timeline from '../Timeline'
+import Project from './project'
 
 const socials = [
   {
@@ -48,6 +50,17 @@ const socials = [
 const Intro = [
   "I'm a self-taught developer with a love of performant, beautiful, and usable web applications. Curious about technology. This website was made to showcase all of what I can do and plan to do.",
   'Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an explorer. During the Summer months here in India, I enjoy Swimming, Football, and Table Tennis.When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.',
+]
+
+const projects = [
+  {
+    title: 'React Bitmoji',
+    imageUrl: 'https://raw.githubusercontent.com/nhemnt/react-bitmoji/master/example/example4.png',
+    description: 'Simple avatar generator React component for Avataaars',
+    tags: ['javascript', 'react'],
+    githubUrl: 'https://github.com/nhemnt/react-bitmoji',
+    demoUrl: 'https://bitmoji.netlify.app/',
+  }
 ]
 const index = () => {
   const data = useStaticQuery(graphql`
@@ -110,8 +123,17 @@ const index = () => {
         </div>{' '}
       </VerticalCenter>
       <TimelineSection>
+        <h2 className="text-center">Work experience & Education</h2>
         <Timeline />
       </TimelineSection>
+      <ProjectSection>
+        <div className="row">
+        {projects.map(project => (
+          <Project {...project}/>
+        ))}
+
+        </div>
+      </ProjectSection>
     </div>
   )
 }
