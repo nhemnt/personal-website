@@ -14,7 +14,7 @@ const Pagination = ({
   <Body>
     <ul>
       {!isFirst && (
-        <Link to={prevPage} rel="prev">
+        <Link to={"/"+prevPage} rel="prev">
           <li>←</li>
         </Link>
       )}
@@ -28,7 +28,7 @@ const Pagination = ({
         </Link>
       ))}
       {!isLast && (
-        <Link to={nextPage} rel="next">
+        <Link to={"/" +nextPage} rel="next">
           <li>→</li>
         </Link>
       )}
