@@ -38,6 +38,7 @@
     "react-helmet": "^5.2.0",
     "react-share": "^4.1.0",
     "react-typography": "^0.16.13",
+    "react-vertical-timeline-component": "^3.0.1",
     "reactstrap": "^8.4.1",
     "reading-time": "^1.2.0",
     "styled-components": "^5.1.0",

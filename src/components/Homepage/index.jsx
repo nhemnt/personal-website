@@ -1,8 +1,16 @@
 import React from 'react'
 import GatsbyImage from 'gatsby-image'
-import { VerticalCenter, Hello, Title, SocialIcon, StyledIntro } from './styles'
+import {
+  VerticalCenter,
+  Hello,
+  Title,
+  SocialIcon,
+  StyledIntro,
+  TimelineSection,
+} from './styles'
 import { graphql, useStaticQuery } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import Timeline from '../Timeline'
 
 const socials = [
   {
@@ -101,6 +109,9 @@ const index = () => {
           </SocialIcon>
         </div>{' '}
       </VerticalCenter>
+      <TimelineSection>
+        <Timeline />
+      </TimelineSection>
     </div>
   )
 }
