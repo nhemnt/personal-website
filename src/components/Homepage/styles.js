@@ -60,7 +60,7 @@ export const Title = styled.div(
       text-shadow: 2px 2px #d0d0d0;
     }
     @media (max-width: 990px) {
-     margin-top: 20px;
+      margin-top: 20px;
     }
   `
 )
@@ -87,6 +87,17 @@ export const SocialIcon = styled.div(
 
     a:hover {
       background-color: #3582b2;
+    }
+
+    @media (max-width: 990px) {
+      a,
+      svg {
+        display: inline-block;
+        height: 3rem;
+        width: 3rem;
+        line-height: 3rem;
+        margin-right: 0.5rem;
+      }
     }
 
     .fadeIn {

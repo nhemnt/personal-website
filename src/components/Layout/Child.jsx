@@ -2,11 +2,12 @@ import React from 'react'
 import {
   defaultColor,
   themeColorStorageKey,
-  } from '../../constants/defaultValues'
-import ColorSwitcher from '../common/ColorSwitcher';
-import Navbar from "../Navbar";
-import MainNavbar from "../Navbar/main";
-import BuyCoffee from "../BuyCoffee";
+} from '../../constants/defaultValues'
+import ColorSwitcher from '../common/ColorSwitcher'
+import Navbar from '../Navbar'
+import MainNavbar from '../Navbar/main'
+import BuyCoffee from '../BuyCoffee'
+import { StyledLayout } from './styles'
 class Child extends React.Component {
   constructor(props) {
     super(props)
@@ -14,11 +15,11 @@ class Child extends React.Component {
   }
   componentDidMount() {
     const color =
-    typeof window !== undefined && localStorage.getItem(themeColorStorageKey)
+      typeof window !== undefined && localStorage.getItem(themeColorStorageKey)
         ? localStorage.getItem(themeColorStorageKey)
         : defaultColor
     if (typeof window !== undefined) {
-      localStorage.setItem(themeColorStorageKey, color)  
+      localStorage.setItem(themeColorStorageKey, color)
     }
     const path = `./themes/${color}.scss`
     import(`${path}`).then(module => this.setState({ loading: true }))
@@ -27,13 +28,13 @@ class Child extends React.Component {
     const { loading } = this.state
     const { children } = this.props
     return (
-      <>
+      <StyledLayout>
         {loading && <ColorSwitcher />}
-        <MainNavbar {...this.props}/> 
+        <MainNavbar {...this.props} />
         {children}
-        <BuyCoffee/>
+        <BuyCoffee />
         <Navbar />
-      </>
+      </StyledLayout>
     )
   }
 }
