@@ -2,7 +2,7 @@ import React from 'react'
 
 function Project({ title, imageUrl, description, tags, githubUrl, demoUrl }) {
   return (
-    <div className="col-12 col-sm-8 col-md-6 col-lg-4">
+    <div className="col-12 col-sm-8 col-md-6 col-lg-4 mb-3">
       <div className="card">
         <img className="card-img" src={imageUrl} alt={title + '-image'} />
         <div className="card-body">
