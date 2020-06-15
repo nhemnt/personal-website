@@ -10,6 +10,32 @@ export const StyledCoffee = styled.div(
     bottom: 20px;
     display: flex;
     align-items: center;
+    z-index:999;
+
+    .trunk-coffee {
+      width: 280px;
+      position: fixed;
+      z-index: 1030;
+      top: 50%;
+      right: 60px;
+      transform: translate(280px, -50%);
+      transition: transform 0.4s ease-out;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .close-coffee{
+      position: absolute;
+      top: -10px;
+      left: 41%;
+      background: #00203f;
+      height: 25px;
+      text-align: center;
+      width: 40px;
+      color: white;
+      border-radius: 204px;
+      cursor: pointer;
+      }
   `)
 
 export const Link = styled.a(

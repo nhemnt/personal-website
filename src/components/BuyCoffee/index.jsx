@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyledCoffee, Link } from './styles'
 const buymeacoffeeUrl = 'https://www.buymeacoffee.com/codelutto'
 const BuyCoffee = () => {
+  const [isTrunk, setTrunk] = useState(false)
+
   return (
     <StyledCoffee>
-      <Link href={buymeacoffeeUrl} target="_blank">
+    
+    {!isTrunk && <p className="close-coffee" onClick = {() => {setTrunk(true) }}>x</p>} 
+
+      <Link href={buymeacoffeeUrl} className={`${isTrunk ? "trunk-coffee" :""}`} target="_blank">
         <CofeeIcon />
-        <span>{'  '}Buy me a coffee</span>
+        { !isTrunk && <span>{'  '}Buy me a coffee</span>}
       </Link>
     </StyledCoffee>
   )
 }
 
-const CofeeIcon = (width= 33, height= 48 ) => (
+const CofeeIcon = (width = 33, height = 48) => (
   <svg
     className="svg-w"
     width={width}
