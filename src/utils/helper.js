@@ -1,12 +1,13 @@
+const isSSR = typeof window !== undefined;
 export const getItem = (item) => {
-    if(window){
+    if(isSSR){
         return window.localStorage.getItem(item);
     }
 }
 
 
 export const setItem = (name, value) => {
-    if(window){
+    if(isSSR){
         window.localStorage.setItem(name, value);
     }
 }
