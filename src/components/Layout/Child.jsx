@@ -25,11 +25,11 @@ class Child extends React.Component {
     import(`${path}`).then(module => this.setState({ loading: true }))
   }
   render() {
-    const { loading } = this.state
+    // const { loading } = this.state
     const { children } = this.props
     return (
       <StyledLayout>
-        {loading && <ColorSwitcher />}
+        {/* {loading && <ColorSwitcher />} */}
         <MainNavbar {...this.props} />
         {children}
         <BuyCoffee />

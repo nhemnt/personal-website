@@ -133,6 +133,12 @@ export const TimelineSection = styled.section(
 
 export const ProjectSection = styled.section(
   () => css`
+    color: #2b5165;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    h2 {
+      margin: 20px 0
+    }
     .item-card {
       transition: 0.5s;
       cursor: pointer;
@@ -145,10 +151,6 @@ export const ProjectSection = styled.section(
       transform: scale(1.05);
       box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
     }
-    .card-text {
-      height: 80px;
-    }
-
     .card::before,
     .card::after {
       position: absolute;
@@ -158,7 +160,6 @@ export const ProjectSection = styled.section(
       left: 0;
       transform: scale3d(0, 0, 1);
       transition: transform 0.3s ease-out 0s;
-      background: rgba(255, 255, 255, 0.1);
       content: '';
       pointer-events: none;
     }
@@ -173,6 +174,45 @@ export const ProjectSection = styled.section(
     .card:focus::before,
     .card:focus::after {
       transform: scale3d(1, 1, 1);
+    }
+    .card-img {
+      height: 200px;
+    }
+
+    --lh: 1.4rem;
+    .truncate-overflow {
+      --max-lines: 3;
+      position: relative;
+      max-height: calc(var(--lh) * var(--max-lines));
+      overflow: hidden;
+    }
+    .truncate-overflow:hover {
+      max-height: inherit;
+    }
+    .truncate-overflow:hover::after {
+      content: '';
+    }
+    .truncate-overflow::before {
+      position: absolute;
+      content: '...';
+      bottom: -4px;
+      right: 0;
+    }
+    .truncate-overflow::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      width: 1rem;
+      height: 1rem;
+      background: white;
+    }
+
+    a {
+      background: #104978;
+      color: #fff;
+    }
+    a:hover {
+      color: #fff;
     }
   `
 )

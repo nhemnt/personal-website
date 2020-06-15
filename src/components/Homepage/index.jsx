@@ -54,13 +54,35 @@ const Intro = [
 
 const projects = [
   {
+    title: 'Humpanel',
+    imageUrl:
+      'https://raw.githubusercontent.com/nhemnt/hum-panel/master/humpanel-full.png',
+    description:
+      'A Panel for Financial report calculation where user can register and manage all thier financial report.',
+    tags: ['javascript', 'react', 'firebase'],
+    githubUrl: 'https://github.com/nhemnt/hum-panel',
+    demoUrl: 'https://clientpanel-e38c7.firebaseapp.com/',
+  },
+  {
     title: 'React Bitmoji',
-    imageUrl: 'https://raw.githubusercontent.com/nhemnt/react-bitmoji/master/example/example4.png',
-    description: 'Simple avatar generator React component for Avataaars',
+    imageUrl:
+      'https://raw.githubusercontent.com/nhemnt/react-bitmoji/master/example/example4.png',
+    description:
+      'Create your own avataar and download it in SVG/PNG format. A Simple avatar generator React component using Avataaars.',
     tags: ['javascript', 'react'],
     githubUrl: 'https://github.com/nhemnt/react-bitmoji',
     demoUrl: 'https://bitmoji.netlify.app/',
-  }
+  },
+  {
+    title: 'Campdekho',
+    imageUrl:
+      'https://raw.githubusercontent.com/nhemnt/campdekho/master/campdekho-logo.png',
+    description:
+      'A site for travellers to pick their camping destination ~Users can interact with each other by creating profile ~An individual can share their camping spots with image and description',
+    tags: ['node', 'javascript', 'react', 'mongo'],
+    githubUrl: 'https://github.com/nhemnt/campdekho',
+    demoUrl: 'https://campdekho.herokuapp.com/',
+  },
 ]
 const index = () => {
   const data = useStaticQuery(graphql`
@@ -127,6 +149,7 @@ const index = () => {
         <Timeline />
       </TimelineSection>
       <ProjectSection>
+      <h2 className="text-center">Open Source Projects</h2>
         <div className="row">
         {projects.map(project => (
           <Project {...project}/>

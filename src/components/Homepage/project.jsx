@@ -7,7 +7,7 @@ function Project({ title, imageUrl, description, tags, githubUrl, demoUrl }) {
         <img className="card-img" src={imageUrl} alt={title + '-image'} />
         <div className="card-body">
           <h4 className="card-title">{title}</h4>
-          <p className="card-text">{description}</p>
+          <p className="card-text truncate-overflow ">{description}</p>
           <div className="stats">
            	{tags.map(tag => (
                <span key={tag}>
@@ -16,11 +16,11 @@ function Project({ title, imageUrl, description, tags, githubUrl, demoUrl }) {
              ))}
           </div>
         </div>
-        <div className="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
-          <a href={githubUrl} target="blank" className="btn btn-info">
+        <div className="card-footer text-muted d-flex bg-transparent border-top-0">
+          <a href={githubUrl} target="blank" className="btn ">
             Github
           </a>
-          <a href={demoUrl} target="blank" className="btn btn-info">
+          <a href={demoUrl} target="blank" className="btn ml-2">
             Demo
           </a>
         </div>
