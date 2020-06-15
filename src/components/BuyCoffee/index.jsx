@@ -1,17 +1,31 @@
 import React, { useState } from 'react'
 import { StyledCoffee, Link } from './styles'
+import { getItem, setItem } from '../../utils/helper'
 const buymeacoffeeUrl = 'https://www.buymeacoffee.com/codelutto'
 const BuyCoffee = () => {
-  const [isTrunk, setTrunk] = useState(false)
+  const [isTrunk, setTrunk] = useState(getItem('buyCoffeeState') ? true : false)
 
   return (
     <StyledCoffee>
-    
-    {!isTrunk && <p className="close-coffee" onClick = {() => {setTrunk(true) }}>x</p>} 
+      {!isTrunk && (
+        <p
+          className="close-coffee"
+          onClick={() => {
+            setTrunk(true)
+            setItem('buyCoffeeState', true)
+          }}
+        >
+          x
+        </p>
+      )}
 
-      <Link href={buymeacoffeeUrl} className={`${isTrunk ? "trunk-coffee" :""}`} target="_blank">
+      <Link
+        href={buymeacoffeeUrl}
+        className={`${isTrunk ? 'trunk-coffee' : ''}`}
+        target="_blank"
+      >
         <CofeeIcon />
-        { !isTrunk && <span>{'  '}Buy me a coffee</span>}
+        {!isTrunk && <span>{'  '}Buy me a coffee</span>}
       </Link>
     </StyledCoffee>
   )
