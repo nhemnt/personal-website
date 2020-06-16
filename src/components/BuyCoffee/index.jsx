@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyledCoffee, Link } from './styles'
 import { getItem, setItem } from '../../utils/helper'
 const buymeacoffeeUrl = 'https://www.buymeacoffee.com/codelutto'
 const BuyCoffee = () => {
-  const [isTrunk, setTrunk] = useState(getItem('buyCoffeeState') ? true : false)
+  const [isTrunk, setTrunk] = useState(undefined)
 
+  useEffect(() => {
+    setTrunk(getItem('buyCoffeeState') ? true : false)
+  }, [])
   return (
     <StyledCoffee>
       {!isTrunk && (
