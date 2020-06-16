@@ -1,5 +1,10 @@
 import styled, { css } from 'styled-components'
 
+export const StyledHomepage = styled.div(
+  ({theme}) => css`
+  background: ${theme["background-color"]}
+
+`)
 export const VerticalCenter = styled.section(
   () => css`
     min-height: 100%; /* Fallback for browsers do NOT support vh unit */
@@ -137,7 +142,7 @@ export const ProjectSection = styled.section(
     margin-top: 30px;
     margin-bottom: 20px;
     h2 {
-      margin: 20px 0
+      margin: 20px 0;
     }
     .item-card {
       transition: 0.5s;
@@ -147,7 +152,7 @@ export const ProjectSection = styled.section(
       transition: 1s;
       cursor: pointer;
     }
-   
+
     .card-img {
       height: 200px;
     }

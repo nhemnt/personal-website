@@ -8,6 +8,7 @@ import {
   StyledIntro,
   TimelineSection,
   ProjectSection,
+  StyledHomepage
 } from './styles'
 import { graphql, useStaticQuery } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
@@ -104,7 +105,7 @@ const index = () => {
     }
   `)
   return (
-    <div className="container">
+    <StyledHomepage className="container">
       <VerticalCenter>
         <div className="col-sm-12">
           <Title>
@@ -157,7 +158,7 @@ const index = () => {
 
         </div>
       </ProjectSection>
-    </div>
+    </StyledHomepage>
   )
 }
 
