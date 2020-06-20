@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import GatsbyImage from 'gatsby-image'
-
+import {StyledResume} from "./styles";
 
 const bio = {
   firstName: "Hemant",
@@ -137,7 +137,7 @@ const Resume = () => {
   }
 `)
   return (
-    <div id="resume">
+    <StyledResume id="resume">
       <nav
         className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
         id="sideNav"
@@ -300,7 +300,7 @@ const Resume = () => {
           </div>
         </section>
       </div>
-    </div>
+    </StyledResume>
   )
 }
 
