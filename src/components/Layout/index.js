@@ -8,7 +8,7 @@ import {GlobalStyles} from './GlobalStyles';
 import ColorSwitcher from '../common/ColorSwitcher'
 
 const Layout = props => {
-  const [theme, setTheme] = useState(colors['DARK_BLUE'])
+  const [theme, setTheme] = useState(colors['LIGHT_BLUE'])
   return (
     <ThemeProvider theme={themes[theme]}>
       <GlobalStyles />
