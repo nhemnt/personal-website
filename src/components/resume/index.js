@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import image from './profile-pic.jpg';
+import GatsbyImage from 'gatsby-image'
 
 
 const bio = {
@@ -125,6 +125,17 @@ const awards = [
 ]
 
 const Resume = () => {
+  const data = useStaticQuery(graphql`
+  {
+    profile_picture: file(relativePath: { eq: "hemant_profile.png" }) {
+      childImageSharp {
+        fixed(width: 350, height: 350) {
+          ...GatsbyImageSharpFixed_withWebp_noBase64
+        }
+      }
+    }
+  }
+`)
   return (
     <div id="resume">
       <nav
@@ -134,11 +145,12 @@ const Resume = () => {
         <a className="navbar-brand js-scroll-trigger" href="#page-top">
           <span className="d-block d-lg-none">{`${bio.firstName} ${bio.lastName}`}</span>
           <span className="d-none d-lg-block">
-            <img
+            {/* <img
               className="img-fluid img-profile rounded-circle mx-auto mb-2"
               src={image}
               alt="hemant negi"
-            />
+            /> */}
+             <GatsbyImage className= "img-fluid img-profile rounded-circle mx-auto mb-2" {...data.profile_picture.childImageSharp} />
           </span>
         </a>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
