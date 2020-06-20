@@ -1,5 +1,6 @@
 import React from 'react'
 import GatsbyImage from 'gatsby-image'
+import {Fade, Rotate} from 'react-reveal';
 import {
   VerticalCenter,
   Hello,
@@ -9,13 +10,13 @@ import {
   TimelineSection,
   ProjectSection,
   StyledHomepage,
-  MusicSection
+  MusicSection,
 } from './styles'
 import { graphql, useStaticQuery } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import Timeline from '../Timeline'
 import Project from './project'
-import Music from "../Music";
+import Music from '../Music'
 
 const socials = [
   {
@@ -110,41 +111,48 @@ const index = () => {
     <StyledHomepage className="container">
       <VerticalCenter>
         <div className="col-sm-12">
-          <Title>
-            <h1>
-              Hi, I am Hemant Negi
-              <Hello>
-                <GatsbyImage {...data.handEmoji.childImageSharp} />
-              </Hello>
-            </h1>
-          </Title>
+          <Fade left>
+            <Title>
+              <h1>
+                Hi, I am Hemant Negi
+                <Hello>
+                  <GatsbyImage {...data.handEmoji.childImageSharp} />
+                </Hello>
+              </h1>
+            </Title>
+          </Fade>
           <StyledIntro className="row">
-            <div className="col-md-8 col-sm-12 py-2">
-              {Intro.map(para => (
-                <p>{para}</p>
-              ))}
-            </div>
-            <div className="col-md-4 col-sm-12 text-center">
-              <GatsbyImage {...data.hemantNegi.childImageSharp} />
-            </div>
+            <Fade left>
+              <div className="col-md-8 col-sm-12 py-2">
+                {Intro.map(para => (
+                  <p>{para}</p>
+                ))}
+              </div>
+            </Fade>
+            <Fade right>
+              <div className="col-md-4 col-sm-12 text-center">
+                <GatsbyImage {...data.hemantNegi.childImageSharp} />
+              </div>
+            </Fade>
           </StyledIntro>
-
-          <SocialIcon>
-            {socials.map((social, i) => (
-              <OutboundLink
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`fadeIn`}
-                style={{ animationDelay: `${i * 0.25 + 0.25}s` }}
-                data-toggle="tooltip"
-                data-placement="top"
-                title={social.title}
-              >
-                <i className={`fab fa-${social.icon}`} />
-              </OutboundLink>
-            ))}
-          </SocialIcon>
+          <Fade left>
+            <SocialIcon>
+              {socials.map((social, i) => (
+                <OutboundLink
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`fadeIn`}
+                  style={{ animationDelay: `${i * 0.25 + 0.25}s` }}
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title={social.title}
+                >
+                  <i className={`fab fa-${social.icon}`} />
+                </OutboundLink>
+              ))}
+            </SocialIcon>
+          </Fade>
         </div>{' '}
       </VerticalCenter>
       <TimelineSection>
@@ -152,18 +160,19 @@ const index = () => {
         <Timeline />
       </TimelineSection>
       <ProjectSection>
-      <h2 className="text-center">Open Source Projects</h2>
+        <h2 className="text-center">Open Source Projects</h2>
         <div className="row">
-        {projects.map(project => (
-          <Project {...project}/>
-        ))}
-
+          {projects.map((project,i) => (
+            <Project index={i} {...project} />
+          ))}
         </div>
       </ProjectSection>
 
       <MusicSection>
-      <h2 className="text-center">🎧 Mood ❤</h2>
-      <Music/>
+        <h2 className="text-center">🎧 Mood ❤</h2>
+        <Rotate top left>
+        <Music />
+        </Rotate>
       </MusicSection>
     </StyledHomepage>
   )
