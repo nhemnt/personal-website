@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import colors from '../../constants/colors'
+import { connect } from 'react-redux'
+
 class ColorSwitcher extends Component {
   constructor(props) {
     super()
@@ -14,7 +16,7 @@ class ColorSwitcher extends Component {
 
   componentDidMount() {
     this.setState({
-      selectedColor: this.props.selectedColor,
+      selectedColor: this.props.theme,
     })
   }
 
@@ -36,7 +38,7 @@ class ColorSwitcher extends Component {
   }
   changeThemeColor = (e, color) => {
     e.preventDefault()
-    this.props.setTheme(colors[color])
+    this.props.updateTheme(colors[color])
 
     this.toggle(e)
   }
@@ -143,4 +145,13 @@ class ColorSwitcher extends Component {
   }
 }
 
-export default ColorSwitcher
+const mapDispatchToProps = dispatch => {
+  return {
+    updateTheme: theme => dispatch({ type: `UPDATE_THEME`, payload: theme }),
+  }
+}
+
+const mapStateToProps = ({ theme }) => {
+  return { theme }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ColorSwitcher)

@@ -1,21 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Child from './Child'
 import { ThemeProvider } from 'styled-components'
 import themes from './themes'
-import colors from '../../constants/colors'
-import { defaultColor } from '../../constants/defaultValues'
-import {GlobalStyles} from './GlobalStyles'; 
+import { GlobalStyles } from './GlobalStyles'
 import ColorSwitcher from '../common/ColorSwitcher'
+import { connect } from 'react-redux'
 
 const Layout = props => {
-  const [theme, setTheme] = useState(colors['LIGHT_BLUE'])
   return (
-    <ThemeProvider theme={themes[theme]}>
+    <ThemeProvider theme={themes[props.theme]}>
       <GlobalStyles />
-      <ColorSwitcher selectedColor={theme} setTheme={setTheme} />
+      <ColorSwitcher />
       <Child {...props} />
     </ThemeProvider>
   )
 }
 
-export default Layout
+const mapStateToProps = ({ theme }) => {
+  return { theme }
+}
+
+export default connect(mapStateToProps, null)(Layout)
