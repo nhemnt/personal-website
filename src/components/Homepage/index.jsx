@@ -8,12 +8,14 @@ import {
   StyledIntro,
   TimelineSection,
   ProjectSection,
-  StyledHomepage
+  StyledHomepage,
+  MusicSection
 } from './styles'
 import { graphql, useStaticQuery } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import Timeline from '../Timeline'
 import Project from './project'
+import Music from "../Music";
 
 const socials = [
   {
@@ -158,6 +160,11 @@ const index = () => {
 
         </div>
       </ProjectSection>
+
+      <MusicSection>
+      <h2 className="text-center">🎧 Mood ❤</h2>
+      <Music/>
+      </MusicSection>
     </StyledHomepage>
   )
 }
