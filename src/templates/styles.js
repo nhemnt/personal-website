@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 export const Header = styled.header(
-  ({ theme: {} }) => css`
+  ({ theme }) => css`
     margin-bottom: 50px;
     background: no-repeat center center;
     background-color: #868e96;
@@ -15,7 +15,7 @@ export const Header = styled.header(
       left: 0;
       height: 100%;
       width: 100%;
-      background-color: #212529;
+      background-color: ${theme['text-color']};;
       opacity: 0.5;
     }
 
@@ -102,32 +102,35 @@ export const Header = styled.header(
 )
 
 export const Blog = styled.div(
-  () => css`
+  ({theme}) => css`
     font-size: 20px;
-    color: #212529;
+    color: ${theme['text-color']};;
     font-family: Lora, 'Times New Roman', serif;
 
     p {
       line-height: 1.5;
+      color: ${theme['text-color']};;
       margin: 30px 0;
     }
 
     p a {
       text-decoration: underline;
     }
-
-    h1,
+    h1 {
+      font-weight: 800;
+    }
     h2,
     h3,
     h4,
     h5,
     h6 {
+      color: ${theme['text-color']};;
       font-weight: 800;
       font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
     a {
-      color: #212529;
+      color: ${theme['text-color']};;
       transition: all 0.2s;
     }
 
