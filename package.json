@@ -8,6 +8,7 @@
   },
   "private": true,
   "dependencies": {
+    "@sentry/gatsby": "^6.1.0",
     "gatsby": "^2.21.9",
     "gatsby-image": "^2.0.22",
     "gatsby-plugin-feed": "^2.0.8",

@@ -8,9 +8,9 @@ module.exports = {
     social: {
       twitter: `nhemnt`,
       facebook: `nhemnt`,
-      github: `nhemnt`
+      github: `nhemnt`,
     },
-    disqusShortname: "codelutto"
+    disqusShortname: 'codelutto',
   },
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -82,15 +82,15 @@ module.exports = {
     {
       resolve: `gatsby-remark-prismjs`,
       options: {
-        classPrefix: "language-",
+        classPrefix: 'language-',
         inlineCodeMarker: null,
         aliases: {},
         showLineNumbers: false,
         noInlineHighlight: false,
         languageExtensions: [
           {
-            language: "superscript",
-            extend: "javascript",
+            language: 'superscript',
+            extend: 'javascript',
             definition: {
               superscript_types: /(SuperType)/,
             },
@@ -102,8 +102,8 @@ module.exports = {
           },
         ],
         prompt: {
-          user: "root",
-          host: "localhost",
+          user: 'root',
+          host: 'localhost',
           global: false,
         },
         escapeEntities: {},
@@ -111,6 +111,12 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     'gatsby-plugin-robots-txt',
-    'gatsby-plugin-sitemap'
+    'gatsby-plugin-sitemap',
+    {
+      resolve: '@sentry/gatsby',
+      options: {
+        dsn: process.env.REACT_APP_SENTRY_URL,
+      },
+    },
   ],
 }
