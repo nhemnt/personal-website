@@ -60,7 +60,9 @@ function SEO({ description, lang, meta, keywords, title }) {
                   : []
               )
               .concat(meta)}
-          />
+          >
+            <script src={withPrefix('script.js')} type="text/javascript" />
+          </Helmet>
         )
       }}
     />

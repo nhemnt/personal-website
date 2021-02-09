@@ -1,6 +1,6 @@
 import React from 'react'
 import GatsbyImage from 'gatsby-image'
-import {Fade, Rotate} from 'react-reveal';
+import { Fade, Rotate } from 'react-reveal'
 import {
   VerticalCenter,
   Hello,
@@ -131,7 +131,23 @@ const index = () => {
             </Fade>
             <Fade right>
               <div className="col-md-4 col-sm-12 text-center">
-                <GatsbyImage {...data.hemantNegi.childImageSharp} />
+                <div
+                  class="LI-profile-badge"
+                  data-version="v1"
+                  data-size="medium"
+                  data-locale="en_US"
+                  data-type="horizontal"
+                  data-theme="dark"
+                  data-vanity="nhemnt"
+                >
+                  <a
+                    class="LI-simple-link"
+                    target="_blank"
+                    href="https://in.linkedin.com/in/nhemnt?trk=profile-badge"
+                  >
+                    <GatsbyImage {...data.hemantNegi.childImageSharp} />
+                  </a>
+                </div>
               </div>
             </Fade>
           </StyledIntro>
@@ -162,7 +178,7 @@ const index = () => {
       <ProjectSection>
         <h2 className="text-center">Open Source Projects</h2>
         <div className="row">
-          {projects.map((project,i) => (
+          {projects.map((project, i) => (
             <Project index={i} {...project} />
           ))}
         </div>
@@ -171,7 +187,7 @@ const index = () => {
       <MusicSection>
         <h2 className="text-center">🎧 Mood ❤</h2>
         <Rotate top left>
-        <Music />
+          <Music />
         </Rotate>
       </MusicSection>
     </StyledHomepage>
