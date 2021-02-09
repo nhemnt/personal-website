@@ -112,11 +112,11 @@ module.exports = {
     `gatsby-plugin-sass`,
     'gatsby-plugin-robots-txt',
     'gatsby-plugin-sitemap',
-    {
-      resolve: '@sentry/gatsby',
-      options: {
-        dsn: process.env.REACT_APP_SENTRY_URL,
-      },
-    },
+    // {
+    //   resolve: '@sentry/gatsby',
+    //   options: {
+    //     dsn: process.env.REACT_APP_SENTRY_URL,
+    //   },
+    // },
   ],
 }

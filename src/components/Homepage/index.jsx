@@ -1,6 +1,7 @@
 import React from 'react'
 import GatsbyImage from 'gatsby-image'
 import { Fade, Rotate } from 'react-reveal'
+import { Container, Row, Col } from 'reactstrap'
 import {
   VerticalCenter,
   Hello,
@@ -11,12 +12,15 @@ import {
   ProjectSection,
   StyledHomepage,
   MusicSection,
+  RecommendationSection,
 } from './styles'
 import { graphql, useStaticQuery } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import Timeline from '../Timeline'
 import Project from './project'
 import Music from '../Music'
+import Recommendation from '../Recommendation'
+import RecommendationsData from '../../data/recommendations.json'
 
 const socials = [
   {
@@ -89,6 +93,7 @@ const projects = [
   },
 ]
 const index = () => {
+  // console.log(Recommendations)
   const data = useStaticQuery(graphql`
     {
       handEmoji: file(relativePath: { eq: "handEmoji.png" }) {
@@ -171,18 +176,41 @@ const index = () => {
           </Fade>
         </div>{' '}
       </VerticalCenter>
+
+      <ProjectSection>
+        <h2 className="text-center mb-5">Open Source Projects</h2>
+        <Container>
+          <div className="row">
+            {projects.map((project, i) => (
+              <Project index={i} {...project} />
+            ))}
+          </div>
+        </Container>
+      </ProjectSection>
+
       <TimelineSection>
         <h2 className="text-center">Work experience & Education</h2>
         <Timeline />
       </TimelineSection>
-      <ProjectSection>
-        <h2 className="text-center">Open Source Projects</h2>
-        <div className="row">
-          {projects.map((project, i) => (
-            <Project index={i} {...project} />
-          ))}
-        </div>
-      </ProjectSection>
+
+      <RecommendationSection>
+        <h2 className="text-center">Recommendations</h2>
+        <Container>
+          <Row className="align-items-center">
+            {RecommendationsData.map((recommendation, index) => (
+              <Col xs="12" sm="4">
+                <Fade
+                  {...{
+                    ...(index % 2 === 0 ? { top: true } : { bottom: true }),
+                  }}
+                >
+                  <Recommendation recommendation={recommendation} />
+                </Fade>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </RecommendationSection>
 
       <MusicSection>
         <h2 className="text-center">🎧 Mood ❤</h2>

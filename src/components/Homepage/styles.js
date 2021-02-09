@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components'
 
 export const StyledHomepage = styled.div(
-  ({theme}) => css`
-  background: ${theme["background-color"]}
-
-`)
+  ({ theme }) => css`
+    background: ${theme['background-color']};
+  `
+)
 export const VerticalCenter = styled.section(
   () => css`
     min-height: 100%; /* Fallback for browsers do NOT support vh unit */
@@ -195,7 +195,11 @@ export const ProjectSection = styled.section(
   `
 )
 
-export const MusicSection = styled.section(
+export const MusicSection = styled.section(() => css``)
+
+export const RecommendationSection = styled.section(
   () => css`
-  
-  `)
+    color: #2b5165;
+    margin-bottom: 20px;
+  `
+)
