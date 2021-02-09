@@ -37,6 +37,9 @@ class BlogIndex extends React.Component {
           }}
           author={author}
         />
+
+
+
         <Bio />
       </Layout>
     )

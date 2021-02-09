@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 export const Body = styled.div(
-  () => css`
+  ({theme}) => css`
   padding: 30px 0;
   text-align: center;
   li {
@@ -14,11 +14,11 @@ export const Body = styled.div(
     padding: 0;
     text-align: center;
     display: inline-block;
-    color: #222;
+    color: ${theme['text-color']};
   }
 
   a.is-active {
-    background-color: #2ecc71;
+    background-color:  ${theme['theme-color-1']};
     border-radius: 100%;
     color: #fff;
   }

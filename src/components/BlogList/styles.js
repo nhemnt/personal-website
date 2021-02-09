@@ -58,6 +58,7 @@ export const Header = styled.header(
     @media only screen and (min-width: 768px) {
       .page-heading h1,
       .site-heading h1 {
+        font-weight: 800;
         font-size: 80px;
       }
     }
@@ -101,111 +102,25 @@ export const Header = styled.header(
   `
 )
 
-export const PostPreview = styled.header(
-  ({ theme: {} }) => css`
-    > a {
-      color: #212529;
-    }
-
-    > a:focus,
-    > a:hover {
-      text-decoration: none;
-      color: #0085a1;
-    }
-
-    > a > .post-title {
-      font-size: 30px;
-      margin-top: 30px;
-      margin-bottom: 10px;
-      text-transform: capitalize;
-    }
-
-    > a > .post-subtitle {
-      font-weight: 300;
-      margin: 0 0 10px;
-    }
-
-    > .post-meta {
-      font-size: 18px;
-      font-style: italic;
-      margin-top: 0;
-      color: #868e96;
-    }
-
-    > .post-meta > a {
-      text-decoration: none;
-      color: #212529;
-    }
-
-    > .post-meta > a:focus,
-    > .post-meta > a:hover {
-      text-decoration: underline;
-      color: #0085a1;
-    }
-
-    @media only screen and (min-width: 768px) {
-      > a > .post-title {
-        font-size: 36px;
-      }
-    }
-  `
-)
-
 export const Blog = styled.div(
-  () => css`
-    font-size: 20px;
-    color: #212529;
-    font-family: Lora, 'Times New Roman', serif;
-
-    p {
-      line-height: 1.5;
-      margin: 30px 0;
-    }
-
-    p a {
-      text-decoration: underline;
-    }
-
-    h1,
+  ({ theme }) => css`
     h2,
     h3,
     h4,
     h5,
     h6 {
       font-weight: 800;
-      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: ${theme['theme-color-1']};
     }
 
-    a {
-      color: #212529;
+    a,li {
+      color: ${theme['theme-color-3']};
       transition: all 0.2s;
     }
 
-    a:focus,
-    a:hover {
-      color: #0085a1;
-    }
-
-    blockquote {
-      font-style: italic;
-      color: #868e96;
-    }
-
-    .section-heading {
-      font-size: 36px;
-      font-weight: 700;
-      margin-top: 60px;
-    }
-
-    .caption {
-      font-size: 14px;
-      font-style: italic;
-      display: block;
-      margin: 0;
-      padding: 10px;
-      text-align: center;
-      border-bottom-right-radius: 5px;
-      border-bottom-left-radius: 5px;
+    a:focus, li:focus,
+    a:hover, li:hover {
+      color: ${theme['theme-color-2']};
     }
 
     ::-moz-selection {
@@ -219,52 +134,64 @@ export const Blog = styled.div(
       background: #0085a1;
       text-shadow: none;
     }
-
-    img::-moz-selection {
-      color: #fff;
-      background: 0 0;
-    }
-
-    img::selection {
-      color: #fff;
-      background: 0 0;
-    }
-
-    img::-moz-selection {
-      color: #fff;
-      background: 0 0;
-    }
-    .btn {
-      font-size: 14px;
-      font-weight: 800;
-      padding: 15px 25px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border-radius: 0;
-      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    }
-
-    .btn-primary {
-      background-color: #0085a1;
-      border-color: #0085a1;
-    }
-
-    .btn-primary:active,
-    .btn-primary:focus,
-    .btn-primary:hover {
-      color: #fff;
-      background-color: #00657b !important;
-      border-color: #00657b !important;
-    }
-    .btn-lg {
-      font-size: 16px;
-      padding: 25px 35px;
-    }
   `
 )
 
 export const ReadingTime = styled.span(
   () => css`
     margin-left: 5px;
+  `
+)
+
+export const BlogPost = styled.div(
+  ({theme}) => css`
+    box-shadow: 0px 0px 25px ${theme['separator-color']};
+    background:  ${theme['background-color']};
+    border-radius: 15px;
+    margin-bottom: 60px;
+  `
+)
+
+export const PostDetailList = styled.ul(
+  () => css`
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+      display: inline-block;
+      margin-right: 3px;
+    }
+  `
+)
+
+export const PostHeading = styled.h4(
+  () => css`
+    margin-top: 10px;
+    line-height: 28px;
+    text-transform: capitalize;
+  `
+)
+
+export const PostDetail = styled.p(
+  () => css`
+    border-top: 1px solid #eeeeee;
+    padding-top: 20px;
+    font-size: 14px;
+    color: #716f85;
+  `
+)
+
+export const ContinueButton = styled.button(
+  ({theme}) => css`
+    display: inline-block;
+    text-align: center;
+    color: #ffffff;
+    background-color:  ${theme['theme-color-1']};
+    font-size: 14px;
+    font-weight: 400;
+    padding: 13px 35px;
+    border-radius: 25px;
+    letter-spacing: 0.15px;
+    border: 0;
   `
 )
