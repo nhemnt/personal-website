@@ -129,7 +129,7 @@ const index = () => {
           <StyledIntro className="row">
             <Fade left>
               <div className="col-md-8 col-sm-12 py-2">
-                {Intro.map(para => (
+                {Intro.map((para) => (
                   <p>{para}</p>
                 ))}
               </div>
