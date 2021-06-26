@@ -195,7 +195,15 @@ export const ProjectSection = styled.section(
   `
 )
 
-export const MusicSection = styled.section(() => css``)
+export const MusicSection = styled.section(
+  () => css`
+    padding-bottom: 20px;
+
+    @media (max-width: 750px) {
+      padding-bottom: 80px;
+    }
+  `
+)
 
 export const RecommendationSection = styled.section(
   () => css`

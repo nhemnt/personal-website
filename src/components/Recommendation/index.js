@@ -13,7 +13,7 @@ import {
 import QuoteSvg from './quote-svgrepo-com.svg'
 
 const minLength = 500
-const sliceStr = str => {
+const sliceStr = (str) => {
   return str.length > minLength ? str.slice(0, minLength) + ' ...' : str
 }
 const Recommendation = ({ recommendation }) => {
@@ -30,7 +30,7 @@ const Recommendation = ({ recommendation }) => {
   const [showMoreButton, setShowMoreButton] = useState(isTruncate)
   const [textShown, setTextShown] = useState(sliceStr(text))
   const toggleTextShown = () => {
-    setShowMoreButton(val => !val)
+    setShowMoreButton((val) => !val)
   }
   // useEffect(() => {
   //   setShowMoreButton(text.length < minLength)
@@ -56,7 +56,6 @@ const Recommendation = ({ recommendation }) => {
         </Logo>
         <Quote>
           <img src={QuoteSvg} alt="" width={36} height={23} />
-          {/* <QuoteSvg /> */}
         </Quote>
         <Text>
           <p>

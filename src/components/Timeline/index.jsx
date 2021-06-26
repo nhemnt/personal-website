@@ -9,27 +9,52 @@ import { Work, School, Star } from '../Icons'
 
 const data = [
   {
-    date: 'Sep 2018 - Present',
-    iconStyle: { background: 'rgb(33, 150, 243)', color: '#fff' },
-    className: "vertical-timeline-element--work",
+    date: 'Aug 2020 - Present',
+    iconStyle: { background: 'rgb(233, 30, 99)', color: '#fff' },
+    className: 'vertical-timeline-element--work',
     icon: <Work />,
-    title: 'Software Developer',
+    title: 'Senior Software Engineer - React JS',
     subtitle: 'Quincus, IN',
-    description: 'Front-End Developer, React JS, Node JS, User Experience',
+    description: [
+      'Micro Frontend architecture design.',
+      'Frontend Lead.',
+      'Reviewed the code written by team members.',
+      'Estimated eﬀort for User Stories and Tasks.',
+      'Followed Agile and deliver features in sprints.',
+    ],
+  },
+  {
+    date: 'Sep 2018 - Aug 2020',
+    iconStyle: { background: 'rgb(33, 150, 243)', color: '#fff' },
+    className: 'vertical-timeline-element--work',
+    icon: <Work />,
+    title: 'Software Engineer I - React.js',
+    subtitle: 'Quincus, IN',
+    description: [
+      'Developed front end of application (Quincus AdminPanel) from scratch.',
+      'Developed the reusable modules with Responsive web designing.',
+      'Handled the Application behavior in diﬀerent Languages.',
+      'Created CI/CD Pipelines using Travis CI.',
+      'Improved the performance of application.',
+      'Awarded as Employee of the year for my work.',
+    ],
   },
   {
     date: 'Feb 2018 - Aug 2018',
     iconStyle: { background: 'rgb(233, 30, 99)', color: '#fff' },
-    className: "vertical-timeline-element--education",
+    className: 'vertical-timeline-element--education',
     icon: <School />,
-    title: 'Software Developer(Intern)',
+    title: 'Software Developer',
     subtitle: 'Leewayhertz, IN',
-    description: 'Web Developer, Node JS, Wordpress',
+    description: [
+      'Modiﬁes code to ﬁx errors.',
+      'Maintained the repository using Source Control GIT.',
+    ],
   },
   {
     date: 'Jun 2017 - Aug 2017',
     iconStyle: { background: 'rgb(233, 30, 99)', color: '#fff' },
-    className: "vertical-timeline-element--education",
+    className: 'vertical-timeline-element--education',
     icon: <School />,
     title: 'Cyber Security(Intern)',
     subtitle: ' Gurgoan Police, IN',
@@ -38,7 +63,7 @@ const data = [
   {
     date: 'Aug 2014 - Jul 2018',
     iconStyle: { background: 'rgb(233, 30, 99)', color: '#fff' },
-    className: "vertical-timeline-element--education",
+    className: 'vertical-timeline-element--education',
     icon: <School />,
     title: 'B.Tech CSE',
     subtitle: ' Gurgoan IN',
@@ -54,20 +79,38 @@ const index = () => {
             key={timeline.title}
             className={timeline.className}
             contentStyle={{
-              ...( i == 0 ? {background: 'rgb(33, 150, 243)', color: '#fff'}: {})
-             }}
+              ...(i == 0
+                ? { background: 'rgb(33, 150, 243)', color: '#fff' }
+                : {}),
+            }}
             contentArrowStyle={{
-              ...( i == 0 ? {borderRight: '7px solid  rgb(33, 150, 243)'}: {})
-                }}
+              ...(i == 0
+                ? { borderRight: '7px solid  rgb(33, 150, 243)' }
+                : {}),
+            }}
             date={timeline.date}
             iconStyle={timeline.iconStyle}
             icon={timeline.icon}
           >
             <h3 className="vertical-timeline-element-title">
-            {timeline.title}
+              {timeline.title}
             </h3>
-            <h4 className="vertical-timeline-element-subtitle">{timeline.subtitle}</h4>
-            <p>{timeline.description}</p>
+            <h4 className="vertical-timeline-element-subtitle">
+              {timeline.subtitle}
+            </h4>
+            <p>
+              {Array.isArray(timeline.description) ? (
+                <ul>
+                  {timeline.description.map((list) => (
+                    <li title={list} key={list}>
+                      {list}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <>{timeline.description}</>
+              )}
+            </p>
           </VerticalTimelineElement>
         )
       })}
