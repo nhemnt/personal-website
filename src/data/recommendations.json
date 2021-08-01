@@ -52,5 +52,15 @@
     "url": "https://www.linkedin.com/in/kunal-r-bhatia/",
     "socialImage": "https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Logo.svg.original.svg",
     "social": "Linkedin"
+  },
+  {
+    "name": "Muhammad Fareed",
+    "subHeading": "Full Stack Developer | JavaScript | NodeJS | MongoDB | AWS | AngularJS | Angular9 | ReactJS | VueJS | Material | MySQL",
+    "text": "I had the pleasure of working with Hemant on a project. He is a great person. He is a good example of the saying that 'A software Engineer should not have language or technology barriers.' Hemant always used to explore new technologies like ReactJS, NextJS, and NodeJs. The best part is, He brings his research to completion.  I highly recommend him if you are looking for a Software Developer.",
+    "avatar": "/images/fareed_profile.jpeg",
+    "url": "https://www.linkedin.com/in/awwalfareed/",
+    "socialImage": "https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Logo.svg.original.svg",
+    "social": "Linkedin"
   }
+
 ]
