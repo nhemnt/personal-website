@@ -74,7 +74,7 @@ const projects = [
   {
     title: 'React Bitmoji',
     imageUrl:
-      'https://media-exp1.licdn.com/dms/image/C4E22AQE3uY6g21S9AA/feedshare-shrink_2048_1536/0/1619978359374?e=1625097600&v=beta&t=RJT9Qu93MMGhpGT8uALCbVVJF5-ED0ssu8ar6PGFkjA',
+      '/images/bitmoji.png',
     description:
       'Create your own avataar and download it in SVG/PNG format. A Simple avatar generator React component using Avataaars.',
     tags: ['javascript', 'react'],
@@ -94,7 +94,7 @@ const projects = [
   {
     title: 'Link the in',
     imageUrl:
-      'https://media-exp1.licdn.com/dms/image/C4E22AQENJcGseA2Hjg/feedshare-shrink_800/0/1616434573704?e=1625097600&v=beta&t=Ua5UzgvCU4tgN9lmwdzplucz80TmWaRjUti6HgDWv_E',
+      '/images/linkthein.png',
     description:
       'A platform where just by some simple clicks you can practice a whole new set of skills and enhance your chances of declaring and getting those shiny LinkedIn badges with flying colors!',
     tags: [
