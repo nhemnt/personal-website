@@ -9,7 +9,20 @@ import { Work, School, Star } from '../Icons'
 
 const data = [
   {
-    date: 'Aug 2020 - Present',
+    date: 'Jun 2021 - Present',
+    iconStyle: { background: 'rgb(233, 30, 99)', color: '#fff' },
+    className: 'vertical-timeline-element--work',
+    icon: <Work />,
+    title: 'Associate Technology L2',
+    subtitle: 'Publicis Sapient, IN',
+    description: [
+      'Developed Retail website using next js.',
+      'Estimated effort for User Stories and Tasks.',
+      'Followed Agile and deliver features in sprints.',
+    ],
+  },
+  {
+    date: 'Aug 2020 - Jun 2021',
     iconStyle: { background: 'rgb(233, 30, 99)', color: '#fff' },
     className: 'vertical-timeline-element--work',
     icon: <Work />,
@@ -19,8 +32,6 @@ const data = [
       'Micro Frontend architecture design.',
       'Frontend Lead.',
       'Reviewed the code written by team members.',
-      'Estimated eﬀort for User Stories and Tasks.',
-      'Followed Agile and deliver features in sprints.',
     ],
   },
   {
