@@ -43,7 +43,7 @@ const Recommendation = ({ recommendation }) => {
               src={socialImage}
               alt={social}
               width={125}
-              height={125}
+              height={50}
             />
           </a>
         </Logo>

@@ -39,7 +39,7 @@ export const Quote = styled.div(
   ({ theme }) => css`
     float: left;
     margin-left: -14px;
-    margin-top: 20px;
+    margin-top: 10px;
     width: 8%;
     margin-bottom: 10px;
   `
