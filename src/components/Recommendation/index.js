@@ -17,15 +17,8 @@ const sliceStr = (str) => {
   return str.length > minLength ? str.slice(0, minLength) + ' ...' : str
 }
 const Recommendation = ({ recommendation }) => {
-  const {
-    name,
-    subHeading,
-    text,
-    avatar,
-    url,
-    socialImage,
-    social,
-  } = recommendation
+  const { name, subHeading, text, avatar, url, socialImage, social } =
+    recommendation
   const isTruncate = text.length > minLength
   const [showMoreButton, setShowMoreButton] = useState(isTruncate)
   const [textShown, setTextShown] = useState(sliceStr(text))
@@ -49,7 +42,7 @@ const Recommendation = ({ recommendation }) => {
               data-theme="dark"
               src={socialImage}
               alt={social}
-              width={300}
+              width={125}
               height={125}
             />
           </a>
